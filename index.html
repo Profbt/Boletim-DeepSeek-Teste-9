@@ -4,41 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boletim Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- TELA DE LOGIN / PIN -->
+  <!-- ========== FUNDO DECORATIVO ========== -->
+  <div class="bg-glow" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ========== TELA DE LOGIN / PIN ========== -->
   <section id="login-container" class="login-container">
     <div class="login-card">
-      <h2>Acesso ao Boletim</h2>
-      <div class="info-aluno">
-        <p><strong>Série:</strong> <span id="info-serie">9º Ano</span></p>
-        <p><strong>Turma:</strong> <span id="info-turma">9C</span></p>
-        <p><strong>Chamada:</strong> <span id="info-chamada">8</span></p>
+      <div class="login-brand">
+        <div class="brand-mark">BD</div>
+        <h2>Acesso ao Boletim</h2>
+        <p class="brand-sub">Verificação segura por PIN</p>
       </div>
+
+      <div class="info-aluno">
+        <div class="info-row">
+          <span class="info-label">Série</span>
+          <span id="info-serie" class="info-value">9º Ano</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Turma</span>
+          <span id="info-turma" class="info-value">9C</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Chamada</span>
+          <span id="info-chamada" class="info-value">8</span>
+        </div>
+      </div>
+
       <form id="form-login">
-        <label for="pin-input">Digite seu PIN:</label>
-        <input type="password" id="pin-input" placeholder="****" required autocomplete="off">
+        <label for="pin-input">Digite seu PIN</label>
+        <input type="password" id="pin-input" placeholder="••••" required autocomplete="off">
         <button type="submit" id="btn-entrar">Entrar</button>
       </form>
       <div id="mensagem-login" class="mensagem-erro"></div>
     </div>
   </section>
 
-  <!-- CONTEÚDO PRINCIPAL (BOLETIM) -->
+  <!-- ========== CONTEÚDO PRINCIPAL ========== -->
   <div id="boletim-conteudo" class="escondido">
+
     <!-- CABEÇALHO -->
     <header class="cabecalho">
-      <h1>Boletim Digital</h1>
-      <p class="subtitulo">9º Ano — Turma 9C</p>
-      <p class="estudante">Estudante nº 8</p>
+      <div class="cabecalho-esquerda">
+        <div class="brand-mark pequeno">BD</div>
+        <div>
+          <h1>Boletim Digital</h1>
+          <p class="subtitulo">9º Ano · Turma 9C · Estudante nº 8</p>
+        </div>
+      </div>
       <button id="btn-alternar-edicao" class="btn-acao">Alterar dados</button>
     </header>
 
-    <!-- PAINEL DE EDIÇÃO (OCULTO POR PADRÃO) -->
+    <!-- PAINEL DE EDIÇÃO -->
     <section id="painel-edicao" class="painel-edicao escondido">
-      <h2>Edição de Notas e Faltas</h2>
+      <div class="painel-header">
+        <h2>Edição de Notas e Faltas</h2>
+        <span class="painel-hint">Alterações só são aplicadas ao salvar</span>
+      </div>
       <div id="mensagem-edicao" class="mensagem-status"></div>
       <div class="tabela-container">
         <table class="boletim-edicao">
@@ -53,19 +83,17 @@
               <th>Faltas 3º</th>
             </tr>
           </thead>
-          <tbody id="corpo-tabela-edicao">
-            <!-- Linhas de edição criadas dinamicamente -->
-          </tbody>
+          <tbody id="corpo-tabela-edicao"></tbody>
         </table>
       </div>
       <div class="acoes-edicao">
-        <button id="btn-salvar" class="btn-acao">Salvar Alterações</button>
+        <button id="btn-salvar" class="btn-acao btn-primario">Salvar Alterações</button>
       </div>
     </section>
 
     <!-- CARDS DE RESUMO -->
     <section class="cards">
-      <div class="card">
+      <div class="card card-destaque">
         <span class="card-titulo">Média geral</span>
         <span class="card-valor" id="media-geral">—</span>
       </div>
@@ -127,9 +155,7 @@
             <th>Situação</th>
           </tr>
         </thead>
-        <tbody id="corpo-tabela">
-          <!-- As linhas serão criadas pelo JavaScript -->
-        </tbody>
+        <tbody id="corpo-tabela"></tbody>
       </table>
     </section>
   </div>
