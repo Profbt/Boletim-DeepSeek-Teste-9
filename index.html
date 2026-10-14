@@ -88,6 +88,34 @@
       </div>
     </section>
 
+    <!-- ============================== -->
+    <!-- GRÁFICOS                        -->
+    <!-- ============================== -->
+
+    <!-- GRÁFICO 1 — MÉDIA POR DISCIPLINA -->
+    <section class="secao-grafico">
+      <h2 class="titulo-grafico">Média por disciplina</h2>
+      <div class="grafico-container grafico-container-alto">
+        <canvas id="graficoMediasDisciplinas"></canvas>
+      </div>
+    </section>
+
+    <!-- GRÁFICO 2 — EVOLUÇÃO DA MÉDIA GERAL -->
+    <section class="secao-grafico">
+      <h2 class="titulo-grafico">Evolução da média geral</h2>
+      <div class="grafico-container">
+        <canvas id="graficoEvolucaoTrimestres"></canvas>
+      </div>
+    </section>
+
+    <!-- GRÁFICO 3 — FALTAS ACUMULADAS -->
+    <section class="secao-grafico">
+      <h2 class="titulo-grafico">Faltas acumuladas</h2>
+      <div class="grafico-container grafico-container-baixo">
+        <canvas id="graficoFaltasAcumuladas"></canvas>
+      </div>
+    </section>
+
     <!-- TABELA DE NOTAS -->
     <section class="tabela-container">
       <table class="boletim">
@@ -109,6 +137,7 @@
     </section>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
