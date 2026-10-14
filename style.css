@@ -89,19 +89,20 @@ body {
   border-radius: 10px;
   border: 1px solid #39ff14;
   box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+  margin-bottom: 30px;
 }
 
-.boletim {
+.boletim, .boletim-edicao {
   width: 100%;
   border-collapse: collapse;
   min-width: 700px; /* força rolagem em telas pequenas */
 }
 
-.boletim thead {
+.boletim thead, .boletim-edicao thead {
   background-color: #1a1a1a;
 }
 
-.boletim th {
+.boletim th, .boletim-edicao th {
   color: #39ff14;
   padding: 12px;
   text-align: left;
@@ -111,13 +112,13 @@ body {
   border-bottom: 1px solid #39ff14;
 }
 
-.boletim td {
+.boletim td, .boletim-edicao td {
   padding: 10px 12px;
   border-bottom: 1px solid #2a2a2a;
   font-size: 0.9rem;
 }
 
-.boletim tbody tr:hover {
+.boletim tbody tr:hover, .boletim-edicao tbody tr:hover {
   background-color: #1f1f1f;
 }
 
@@ -136,6 +137,171 @@ body {
   color: #888; /* cinza */
 }
 
+/* ===== ELEMENTOS NOVOS E CONTROLES ===== */
+.escondido {
+  display: none !important;
+}
+
+/* Tela de Login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.login-card {
+  background-color: #1a1a1a;
+  border: 1px solid #39ff14;
+  border-radius: 10px;
+  padding: 30px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+  text-align: center;
+}
+
+.login-card h2 {
+  color: #39ff14;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.info-aluno {
+  background-color: #0d0d0d;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.info-aluno p {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin: 4px 0;
+}
+
+.info-aluno span {
+  color: #39ff14;
+}
+
+.login-card label {
+  display: block;
+  margin-bottom: 8px;
+  color: #e0e0e0;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.login-card input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #39ff14;
+  border-radius: 6px;
+  background-color: #0d0d0d;
+  color: #39ff14;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  outline: none;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.login-card input[type="password"]:focus {
+  box-shadow: 0 0 8px rgba(57, 255, 20, 0.8);
+}
+
+/* Botões */
+.btn-acao, #btn-entrar {
+  background-color: #1a1a1a;
+  color: #39ff14;
+  border: 1px solid #39ff14;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-acao:hover, #btn-entrar:hover {
+  background-color: #39ff14;
+  color: #0d0d0d;
+  box-shadow: 0 0 10px #39ff14;
+}
+
+.cabecalho .btn-acao {
+  margin-top: 15px;
+}
+
+/* Painel de Edição */
+.painel-edicao {
+  background-color: #1a1a1a;
+  border: 1px solid #39ff14;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+}
+
+.painel-edicao h2 {
+  color: #39ff14;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.input-edicao {
+  width: 65px;
+  padding: 6px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #0d0d0d;
+  color: #fff;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.input-edicao:focus {
+  border-color: #39ff14;
+  outline: none;
+  box-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+}
+
+.acoes-edicao {
+  margin-top: 15px;
+  text-align: right;
+}
+
+/* Mensagens de feedback */
+.mensagem-erro {
+  color: #ff4d4d;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+.mensagem-status {
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  display: none;
+}
+
+.mensagem-status.sucesso {
+  display: block;
+  background-color: rgba(57, 255, 20, 0.1);
+  border: 1px solid #39ff14;
+  color: #39ff14;
+}
+
+.mensagem-status.erro {
+  display: block;
+  background-color: rgba(255, 77, 77, 0.1);
+  border: 1px solid #ff4d4d;
+  color: #ff4d4d;
+}
+
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 600px) {
   .cabecalho h1 {
@@ -147,8 +313,15 @@ body {
   }
 
   .boletim th,
-  .boletim td {
+  .boletim td,
+  .boletim-edicao th,
+  .boletim-edicao td {
     padding: 8px;
     font-size: 0.8rem;
+  }
+
+  .input-edicao {
+    width: 50px;
+    padding: 4px;
   }
 }
